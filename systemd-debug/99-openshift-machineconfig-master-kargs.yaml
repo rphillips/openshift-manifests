@@ -1,0 +1,12 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: master
+  name: 99-openshift-cgroupsv2-master-kargs
+spec:
+  kernelArguments:
+    - systemd.log_level=debug
+    - systemd.log_target=kmsg
+    - printk.devkmsg=on
+    - log_buf_len=1M

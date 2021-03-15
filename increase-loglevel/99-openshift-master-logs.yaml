@@ -1,0 +1,16 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  name: 99-test-config
+spec:
+  config:
+    ignition:
+      version: "2.2.0"
+    storage:
+      files:
+        - contents:
+            source: "data:application/octet-stream,%5BService%5D%0AEnvironment%3D%22KUBELET_LOG_LEVEL%3D4%22%0A"
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/systemd/system/kubelet.service.d/20-logging.conf
