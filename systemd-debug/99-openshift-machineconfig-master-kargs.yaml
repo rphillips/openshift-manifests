@@ -3,7 +3,7 @@ kind: MachineConfig
 metadata:
   labels:
     machineconfiguration.openshift.io/role: master
-  name: 99-openshift-cgroupsv2-master-kargs
+  name: 99-openshift-master-kargs
 spec:
   kernelArguments:
     - systemd.log_level=debug
